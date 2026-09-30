@@ -1,0 +1,241 @@
+{%- assign tapp_product = section.settings.product -%}
+<section class="tapp-colorways" aria-labelledby="TappColorwaysHeading-{{ section.id }}">
+  <div class="page-width tapp-colorways__inner">
+    <div class="tapp-colorways__intro">
+      <p class="tapp-colorways__eyebrow">{{ 'sections.tapp_colorways.eyebrow' | t }}</p>
+      <h2 id="TappColorwaysHeading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.description | escape }}</p>
+    </div>
+    {% if tapp_product != blank %}
+      <div class="tapp-colorways__grid">
+        {% for variant in tapp_product.variants limit: 3 %}
+          {% assign card_image = variant.featured_media.preview_image | default: tapp_product.featured_media.preview_image %}
+          {% assign color_key = variant.title | downcase | handleize %}
+          {% assign card_alt = variant.title | append: ' TAPP NFC card' | escape %}
+          <article class="tapp-color-card tapp-color-card--{{ color_key }}">
+            <a class="tapp-color-card__image-link" href="{{ tapp_product.url }}?variant={{ variant.id }}" aria-label="{{ 'sections.tapp_colorways.shop_colorway' | t: color: variant.title | escape }}">
+              <span class="tapp-color-card__index">0{{ forloop.index }}</span>
+              {% if card_image != blank %}
+                {{ card_image | image_url: width: 900 | image_tag: class: 'tapp-color-card__image', alt: card_alt, loading: 'lazy' }}
+              {% endif %}
+              <span class="tapp-color-card__arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="tapp-color-card__details">
+              <div>
+                <h3>{{ variant.title | escape }}</h3>
+                <p>{{ 'sections.tapp_colorways.card_caption' | t }}</p>
+              </div>
+              <span class="tapp-color-card__price">{{ variant.price | money }}</span>
+            </div>
+            <a class="tapp-color-card__button" href="{{ tapp_product.url }}?variant={{ variant.id }}">{{ 'sections.tapp_colorways.shop_colorway' | t: color: variant.title | escape }}</a>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="tapp-colorways__empty">{{ 'sections.tapp_colorways.choose_product' | t }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .tapp-colorways {
+    padding: clamp(5rem, 8vw, 10rem) 0;
+    background: #fff9f4;
+    color: #211722;
+  }
+
+  .tapp-colorways__intro {
+    max-width: 72rem;
+    margin: 0 auto clamp(3rem, 5vw, 5.5rem);
+    text-align: center;
+  }
+
+  .tapp-colorways__eyebrow {
+    display: inline-flex;
+    margin: 0 0 1.2rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    color: #211722;
+    background: #f5d963;
+    font-size: 1.1rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .tapp-colorways__intro h2 {
+    margin: 0;
+    color: #211722;
+    font-size: clamp(3.6rem, 7.4vw, 8rem);
+    font-weight: 950;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .tapp-colorways__intro > p:last-child {
+    max-width: 52rem;
+    margin: 1.8rem auto 0;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    line-height: 1.45;
+  }
+
+  .tapp-colorways__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.2rem, 2.2vw, 2.4rem);
+  }
+
+  .tapp-color-card {
+    overflow: hidden;
+    padding: 1rem;
+    border: 1px solid rgba(33, 23, 34, 0.08);
+    border-radius: 2.4rem;
+    background: #fff;
+    box-shadow: 0 1.4rem 4rem rgba(56, 23, 43, 0.08);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .tapp-color-card:hover {
+    transform: translateY(-0.5rem) rotate(-0.35deg);
+    box-shadow: 0 2rem 4.5rem rgba(56, 23, 43, 0.14);
+  }
+
+  .tapp-color-card__image-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 1.7rem;
+    background: #fce2eb;
+    aspect-ratio: 1 / 0.88;
+  }
+
+  .tapp-color-card--black .tapp-color-card__image-link { background: #221d24; }
+  .tapp-color-card--pink .tapp-color-card__image-link { background: #f45291; }
+  .tapp-color-card--transparent .tapp-color-card__image-link {
+    background: radial-gradient(circle at 70% 25%, #fff 0, #e6ecf2 42%, #c9d1d9 100%);
+  }
+
+  .tapp-color-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 250ms ease;
+  }
+
+  .tapp-color-card--black .tapp-color-card__image,
+  .tapp-color-card--transparent .tapp-color-card__image { mix-blend-mode: normal; }
+
+  .tapp-color-card__image-link:hover .tapp-color-card__image { transform: scale(1.06) rotate(-1deg); }
+
+  .tapp-color-card__index {
+    position: absolute;
+    z-index: 1;
+    top: 1.4rem;
+    left: 1.4rem;
+    display: grid;
+    width: 3.5rem;
+    height: 3.5rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #211722;
+    background: #f5d963;
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  .tapp-color-card__arrow {
+    position: absolute;
+    right: 1.3rem;
+    bottom: 1.3rem;
+    display: grid;
+    width: 4.4rem;
+    height: 4.4rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #211722;
+    font-size: 2rem;
+  }
+
+  .tapp-color-card__details {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.8rem 0.5rem 1.4rem;
+  }
+
+  .tapp-color-card__details h3 {
+    margin: 0;
+    font-size: clamp(2rem, 2.5vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+
+  .tapp-color-card__details p {
+    margin: 0.4rem 0 0;
+    color: #655d68;
+    font-size: 1.35rem;
+  }
+
+  .tapp-color-card__price {
+    flex: 0 0 auto;
+    padding-top: 0.45rem;
+    font-size: 1.8rem;
+    font-weight: 850;
+  }
+
+  .tapp-color-card__button {
+    display: flex;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #fff;
+    background: #211722;
+    font-size: 1.35rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .tapp-color-card__button:hover {
+    color: #211722;
+    background: #f5d963;
+  }
+
+  .tapp-colorways__empty { text-align: center; }
+
+  @media screen and (max-width: 749px) {
+    .tapp-colorways__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .tapp-color-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: 1.2rem; padding: 0.8rem; border-radius: 1.8rem; }
+    .tapp-color-card__image-link { grid-row: span 2; border-radius: 1.3rem; aspect-ratio: 1 / 1; }
+    .tapp-color-card__details { display: block; align-self: end; padding: 0 0.4rem; }
+    .tapp-color-card__price { display: block; margin-top: 0.8rem; }
+    .tapp-color-card__button { min-height: 4.4rem; align-self: start; margin: 0 0.4rem 0.4rem; font-size: 1.1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tapp-color-card, .tapp-color-card__image, .tapp-color-card__button { transition: none; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "TAPP colorways",
+  "tag": "section",
+  "class": "section-tapp-colorways",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pick your color. Make it yours." },
+    { "type": "text", "id": "description", "label": "Description", "default": "Three card finishes. One tap away from your next connection." }
+  ],
+  "presets": [{ "name": "TAPP colorways" }]
+}
+{% endschema %}

@@ -1,0 +1,165 @@
+<section class="tapp-setup" aria-labelledby="TappSetupHeading-{{ section.id }}">
+  <div class="page-width tapp-setup__layout">
+    <div class="tapp-setup__intro">
+      <p class="tapp-setup__eyebrow">{{ 'sections.tapp_setup.eyebrow' | t }}</p>
+      <h2 id="TappSetupHeading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      <p class="tapp-setup__lede">{{ section.settings.description | escape }}</p>
+      <a class="tapp-setup__link" href="{{ section.settings.button_link | default: '/products/tapp-nfc-card' }}">{{ 'sections.tapp_setup.button' | t }} <span aria-hidden="true">↗</span></a>
+    </div>
+    <ol class="tapp-setup__steps">
+      <li class="tapp-setup__step tapp-setup__step--pink">
+        <span class="tapp-setup__number">01</span>
+        {% if section.settings.step_one_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_one_image | escape }}" alt="{{ 'sections.tapp_setup.step_one_alt' | t | escape }}" width="720" height="517" loading="lazy">{% endif %}
+        <div><h3>{{ 'sections.tapp_setup.step_one_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_one_text' | t }}</p></div>
+      </li>
+      <li class="tapp-setup__step tapp-setup__step--yellow">
+        <span class="tapp-setup__number">02</span>
+        {% if section.settings.step_two_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_two_image | escape }}" alt="{{ 'sections.tapp_setup.step_two_alt' | t | escape }}" width="720" height="665" loading="lazy">{% endif %}
+        <div><h3>{{ 'sections.tapp_setup.step_two_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_two_text' | t }}</p></div>
+      </li>
+      <li class="tapp-setup__step tapp-setup__step--ink">
+        <span class="tapp-setup__number">03</span>
+        {% if section.settings.step_three_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_three_image | escape }}" alt="{{ 'sections.tapp_setup.step_three_alt' | t | escape }}" width="720" height="837" loading="lazy">{% endif %}
+        <div><h3>{{ 'sections.tapp_setup.step_three_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_three_text' | t }}</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .tapp-setup {
+    overflow: hidden;
+    padding: clamp(5rem, 8vw, 10rem) 0;
+    color: #fff;
+    background: #211722;
+  }
+
+  .tapp-setup__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(3rem, 7vw, 8rem);
+  }
+
+  .tapp-setup__eyebrow {
+    display: inline-flex;
+    margin: 0 0 1.5rem;
+    color: #f5d963;
+    font-size: 1.2rem;
+    font-weight: 850;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .tapp-setup__intro h2 {
+    max-width: 8ch;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(4.4rem, 7vw, 8.2rem);
+    font-weight: 950;
+    letter-spacing: -0.075em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  .tapp-setup__lede {
+    max-width: 44rem;
+    margin: 2rem 0 2.7rem;
+    color: rgba(255,255,255,0.82);
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    line-height: 1.5;
+  }
+
+  .tapp-setup__link {
+    display: inline-flex;
+    min-height: 5.2rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2.5rem;
+    border-radius: 999px;
+    color: #211722;
+    background: #f5d963;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .tapp-setup__steps {
+    display: grid;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tapp-setup__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 4.5rem 11rem minmax(0, 1fr);
+    align-items: center;
+    gap: 1.6rem;
+    min-height: 12rem;
+    padding: 2rem 2.5rem;
+    border-radius: 2rem;
+    color: #211722;
+  }
+
+  .tapp-setup__step--pink { background: #f45291; }
+  .tapp-setup__step--yellow { background: #f5d963; }
+  .tapp-setup__step--ink { color: #fff; background: #403142; }
+
+  .tapp-setup__number { font-size: 1.2rem; font-weight: 900; letter-spacing: 0.1em; }
+
+  .tapp-setup__image {
+    display: block;
+    width: 11rem;
+    height: 9rem;
+    border: 0.3rem solid rgba(255,255,255,0.82);
+    border-radius: 1.2rem;
+    object-fit: cover;
+    object-position: center 35%;
+    box-shadow: 0 0.8rem 2rem rgba(33,23,34,0.22);
+  }
+
+  .tapp-setup__step h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .tapp-setup__step p {
+    max-width: 42rem;
+    margin: 0.5rem 0 0;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 749px) {
+    .tapp-setup__layout { grid-template-columns: 1fr; gap: 3rem; }
+    .tapp-setup__intro h2 { max-width: 10ch; }
+    .tapp-setup__step { grid-template-columns: 3rem 6.5rem minmax(0, 1fr); gap: 1rem; min-height: 10rem; padding: 1.5rem; border-radius: 1.6rem; }
+    .tapp-setup__image { width: 6.5rem; height: 7rem; border-width: 0.2rem; border-radius: 0.8rem; }
+    .tapp-setup__step p { font-size: 1.35rem; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "TAPP card setup",
+  "tag": "section",
+  "class": "section-tapp-setup",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Set it up. Tap it. Go." },
+    { "type": "text", "id": "description", "label": "Description", "default": "Add your destination in NFC Tools, write it to your card, and you are ready to connect." },
+    { "type": "url", "id": "step_one_image", "label": "Step 1 image" },
+    { "type": "url", "id": "step_two_image", "label": "Step 2 image" },
+    { "type": "url", "id": "step_three_image", "label": "Step 3 image" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "TAPP card setup" }]
+}
+{% endschema %}

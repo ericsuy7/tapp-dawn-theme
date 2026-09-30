@@ -267,6 +267,25 @@
     }
   },
   "sections": {
+    "tapp_colorways": {
+      "eyebrow": "Pick your vibe",
+      "card_caption": "Ready for your next connection",
+      "shop_colorway": "Shop {{ color }}",
+      "choose_product": "Choose the TAPP card product in section settings."
+    },
+    "tapp_setup": {
+      "eyebrow": "Easy as 1, 2, TAPP",
+      "button": "Get your TAPP card",
+      "step_one_title": "Open NFC Tools",
+      "step_one_alt": "NFC Tools menu showing the Write option",
+      "step_one_text": "Choose Write, then tap Add a record to start programming your card.",
+      "step_two_title": "Add your link",
+      "step_two_alt": "NFC Tools record options, including URL and URI",
+      "step_two_text": "Choose URL / URI, enter the page you want people to open, and save the record.",
+      "step_three_title": "Write and tap",
+      "step_three_alt": "Phone ready to scan an NFC card",
+      "step_three_text": "Tap Write and hold the card close to your phone until NFC Tools confirms it is done."
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

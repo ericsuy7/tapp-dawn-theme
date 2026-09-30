@@ -13,36 +13,28 @@
       }
     },
     "featured_collection": {
-      "type": "featured-collection",
+      "type": "tapp-colorways",
       "settings": {
-        "title": "The TAPP card, your way",
-        "heading_size": "h2",
-        "description": "Choose black or pink. $15 CAD each.",
-        "show_description": true,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 3,
-        "color_scheme": "scheme-2",
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "product": "tapp-nfc-card",
+        "heading": "Pick your color. Make it yours.",
+        "description": "Three card finishes. One tap away from your next connection."
+      }
+    },
+    "tapp_setup": {
+      "type": "tapp-setup",
+      "settings": {
+        "heading": "Set it up. Tap it. Go.",
+        "description": "Add your destination in NFC Tools, write it to your card, and you are ready to connect.",
+        "step_one_image": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-setup-write.png?v=1790803101",
+        "step_two_image": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-setup-record.png?v=1790803097",
+        "step_three_image": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-setup-scan.png?v=1790803104",
+        "button_link": "/products/tapp-nfc-card"
       }
     }
   },
   "order": [
     "tapp_hero",
-    "featured_collection"
+    "featured_collection",
+    "tapp_setup"
   ]
 }
