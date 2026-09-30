@@ -1,0 +1,198 @@
+<section class="tapp-hero" aria-labelledby="TappHeroHeading-{{ section.id }}">
+  <div class="page-width tapp-hero__layout">
+    <div class="tapp-hero__copy">
+      {% if section.settings.eyebrow != blank %}
+        <p class="tapp-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {% endif %}
+      <h1 id="TappHeroHeading-{{ section.id }}" class="tapp-hero__heading">{{ section.settings.heading | escape }}</h1>
+      {% if section.settings.description != blank %}
+        <p class="tapp-hero__description">{{ section.settings.description | escape }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="tapp-hero__button" href="{{ section.settings.button_link | escape }}">{{ section.settings.button_label | escape }}</a>
+      {% endif %}
+    </div>
+    {% if section.settings.image_url != blank %}
+      <div class="tapp-hero__image-wrap">
+        <img class="tapp-hero__image" src="{{ section.settings.image_url | escape }}" alt="{{ section.settings.image_alt | escape }}" width="1024" height="1024" loading="eager" fetchpriority="high">
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .tapp-hero {
+    overflow: hidden;
+    padding: clamp(4rem, 8vw, 9rem) 0;
+    color: #fff;
+    background: radial-gradient(circle at 75% 18%, #ff8cb8 0, #f45291 48%, #d93d7b 100%);
+  }
+
+  .tapp-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.92fr);
+    align-items: center;
+    gap: clamp(3rem, 7vw, 9rem);
+  }
+
+  .tapp-hero__copy {
+    max-width: 62rem;
+  }
+
+  .tapp-hero__eyebrow {
+    display: inline-flex;
+    margin: 0 0 2rem;
+    padding: 0.75rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .tapp-hero__heading {
+    max-width: 9ch;
+    margin: 0;
+    color: inherit;
+    font-size: clamp(4.8rem, 8.8vw, 10.4rem);
+    font-weight: 900;
+    letter-spacing: -0.075em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  .tapp-hero__description {
+    max-width: 42rem;
+    margin: 2.4rem 0 3rem;
+    font-size: clamp(1.7rem, 2vw, 2.1rem);
+    line-height: 1.45;
+  }
+
+  .tapp-hero__button {
+    display: inline-flex;
+    min-height: 5.2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2.8rem;
+    border: 2px solid #211722;
+    border-radius: 999px;
+    color: #fff;
+    background: #211722;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .tapp-hero__button:hover {
+    color: #211722;
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .tapp-hero__image-wrap {
+    overflow: hidden;
+    border: 0.8rem solid rgba(255, 255, 255, 0.46);
+    border-radius: 2.8rem;
+    background: #2b1420;
+    box-shadow: 0 2.8rem 7rem rgba(53, 11, 32, 0.28);
+    transform: rotate(2deg);
+  }
+
+  .tapp-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 749px) {
+    .tapp-hero {
+      padding: 4.5rem 0 5.5rem;
+    }
+
+    .tapp-hero__layout {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .tapp-hero__heading {
+      max-width: 10ch;
+      font-size: clamp(4.6rem, 14vw, 7.4rem);
+    }
+
+    .tapp-hero__image-wrap {
+      width: min(100%, 52rem);
+      margin: 0 auto;
+      border-width: 0.5rem;
+      border-radius: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tapp-hero__button {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "TAPP hero",
+  "tag": "section",
+  "class": "section-tapp-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "TAPP into something new"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Make every intro count."
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "One simple card. A memorable way to connect."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the TAPP card"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "url",
+      "id": "image_url",
+      "label": "Product image URL",
+      "default": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-card-pink.png?v=1790732122"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Pink TAPP NFC card on a dark studio background"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TAPP hero"
+    }
+  ]
+}
+{% endschema %}

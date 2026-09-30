@@ -3635,3 +3635,67 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+:root {
+  --tapp-pink: #f45291;
+  --tapp-cream: #fff9f4;
+  --tapp-ink: #211722;
+}
+
+body {
+  background-color: var(--tapp-cream);
+}
+
+.shopify-section-group-header-group .header-wrapper {
+  background-color: var(--tapp-cream);
+  border-bottom: 1px solid #f4cada;
+}
+
+.announcement-bar-section .announcement-bar {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.header__heading-link {
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.header__menu-item {
+  font-weight: 700;
+}
+
+.title,
+.main-page-title,
+.product__title h1,
+.collection-hero__title {
+  font-weight: 850;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.product-card-wrapper .card__heading,
+.collection-card-wrapper .card__heading {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .product-card-wrapper .card__media img,
+  .collection-card-wrapper .card__media img {
+    transition: transform 220ms ease;
+  }
+
+  .product-card-wrapper:hover .card__media img,
+  .collection-card-wrapper:hover .card__media img {
+    transform: scale(1.035);
+  }
+}
