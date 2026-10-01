@@ -213,12 +213,20 @@
   .tapp-colorways__empty { text-align: center; }
 
   @media screen and (max-width: 749px) {
-    .tapp-colorways__grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .tapp-color-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: 1.2rem; padding: 0.8rem; border-radius: 1.8rem; }
-    .tapp-color-card__image-link { grid-row: span 2; border-radius: 1.3rem; aspect-ratio: 1 / 1; }
-    .tapp-color-card__details { display: block; align-self: end; padding: 0 0.4rem; }
-    .tapp-color-card__price { display: block; margin-top: 0.8rem; }
-    .tapp-color-card__button { min-height: 4.4rem; align-self: start; margin: 0 0.4rem 0.4rem; font-size: 1.1rem; }
+    .tapp-colorways { padding: 3.5rem 0; }
+    .tapp-colorways__intro { margin-bottom: 2rem; }
+    .tapp-colorways__intro h2 { font-size: clamp(3rem, 9vw, 4.2rem); }
+    .tapp-colorways__intro > p:last-child { margin-top: 1rem; font-size: 1.4rem; }
+    .tapp-colorways__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
+    .tapp-color-card { display: block; padding: 0.6rem; border-radius: 1.3rem; }
+    .tapp-color-card__image-link { border-radius: 0.9rem; aspect-ratio: 1 / 0.9; }
+    .tapp-color-card__index { top: 0.5rem; left: 0.5rem; width: 2.2rem; height: 2.2rem; font-size: 0.9rem; }
+    .tapp-color-card__arrow { display: none; }
+    .tapp-color-card__details { display: block; padding: 0.8rem 0.2rem; }
+    .tapp-color-card__details h3 { font-size: clamp(1.1rem, 3.4vw, 1.5rem); }
+    .tapp-color-card__details p { display: none; }
+    .tapp-color-card__price { display: block; margin-top: 0.4rem; font-size: 1.3rem; }
+    .tapp-color-card__button { min-height: 3.2rem; padding: 0.2rem; font-size: clamp(0.8rem, 2.5vw, 1rem); letter-spacing: 0; }
   }
 
   @media (prefers-reduced-motion: reduce) {
