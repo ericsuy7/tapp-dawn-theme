@@ -1,5 +1,13 @@
 {
   "sections": {
+    "featured_collection": {
+      "type": "tapp-colorways",
+      "settings": {
+        "product": "tapp-nfc-card",
+        "heading": "Pick your color. Make it yours.",
+        "description": "Three card finishes. One tap away from your next connection."
+      }
+    },
     "tapp_hero": {
       "type": "tapp-hero",
       "settings": {
@@ -10,14 +18,6 @@
         "button_link": "/products/tapp-nfc-card",
         "image_url": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-card-pink.png?v=1790732122",
         "image_alt": "Pink TAPP NFC card on a dark studio background"
-      }
-    },
-    "featured_collection": {
-      "type": "tapp-colorways",
-      "settings": {
-        "product": "tapp-nfc-card",
-        "heading": "Pick your color. Make it yours.",
-        "description": "Three card finishes. One tap away from your next connection."
       }
     },
     "tapp_setup": {
@@ -33,8 +33,8 @@
     }
   },
   "order": [
-    "tapp_hero",
     "featured_collection",
+    "tapp_hero",
     "tapp_setup"
   ]
 }
