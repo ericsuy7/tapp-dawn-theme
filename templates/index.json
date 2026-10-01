@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "featured_collection": {
@@ -11,13 +20,13 @@
     "tapp_hero": {
       "type": "tapp-hero",
       "settings": {
-        "eyebrow": "TAPP into something new",
+        "eyebrow": "TAP into something new",
         "heading": "Make every intro count.",
         "description": "One simple card. A memorable way to connect.",
-        "button_label": "Shop the TAPP card",
+        "button_label": "Shop the TAP card",
         "button_link": "/products/tapp-nfc-card",
         "image_url": "https://cdn.shopify.com/s/files/1/1028/7562/7801/files/tapp-card-pink.png?v=1790732122",
-        "image_alt": "Pink TAPP NFC card on a dark studio background"
+        "image_alt": "Pink TAP NFC card on a dark studio background"
       }
     },
     "tapp_setup": {

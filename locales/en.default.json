@@ -280,11 +280,11 @@
       "eyebrow": "Pick your vibe",
       "card_caption": "Ready for your next connection",
       "shop_colorway": "Shop {{ color }}",
-      "choose_product": "Choose the TAPP card product in section settings."
+      "choose_product": "Choose the TAP card product in section settings."
     },
     "tapp_setup": {
-      "eyebrow": "Easy as 1, 2, TAPP",
-      "button": "Get your TAPP card",
+      "eyebrow": "Easy as 1, 2, TAP",
+      "button": "Get your TAP card",
       "step_one_title": "Open NFC Tools",
       "step_one_alt": "NFC Tools menu showing the Write option",
       "step_one_text": "Open NFC Tools and tap Write to begin setting up your card.",
@@ -301,14 +301,14 @@
     "tapp_how": {
       "eyebrow": "The ritual",
       "step_one_title": "Tap",
-      "step_one_text": "Hold your TAPP card near the NFC area on the back of a compatible phone.",
+      "step_one_text": "Hold your TAP card near the NFC area on the back of a compatible phone.",
       "step_two_title": "Share",
       "step_two_text": "The link saved to your card opens on the phone, ready to view.",
       "step_three_title": "Connect",
       "step_three_text": "Share your profile, contact details, social links, or the page you chose."
     },
     "tapp_benefits": {
-      "eyebrow": "Why TAPP",
+      "eyebrow": "Why TAP",
       "one_title": "A quick handoff",
       "one_text": "Bring your link up with a simple tap instead of spelling it out.",
       "two_title": "No app for them",
