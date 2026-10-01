@@ -14,7 +14,7 @@
             {% when 'transparent' %}{% assign card_caption = 'Clear finish with the NFC details on display.' %}
             {% else %}{% assign card_caption = 'A simple tap to make your next connection.' %}
           {% endcase %}
-          <article class="tapp-color-card tapp-color-card--{{ color_key }}">
+          <article class="tapp-color-card tapp-color-card--{{ color_key }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
             <a class="tapp-color-card__image-link" href="{{ tapp_product.url }}?variant={{ variant.id }}" aria-label="{{ 'sections.tapp_colorways.shop_colorway' | t: color: variant.title | escape }}">
               {% if card_image != blank %}
                 {{ card_image | image_url: width: 900 | image_tag: class: 'tapp-color-card__image', alt: card_alt, loading: 'lazy' }}
@@ -24,6 +24,7 @@
               <h3><a href="{{ tapp_product.url }}?variant={{ variant.id }}">{{ variant.title | escape }}</a></h3>
               <span class="tapp-color-card__price">{{ variant.price | money }}</span>
               <p>{{ card_caption }}</p>
+              <a class="tapp-color-card__cta" href="{{ tapp_product.url }}?variant={{ variant.id }}">{{ 'sections.tapp_colorways.shop_colorway' | t: color: variant.title | escape }} <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         {% endfor %}
@@ -56,7 +57,10 @@
     min-width: 0;
     padding: 0;
     background: #f2f2f2;
+    transition: transform 220ms ease, box-shadow 220ms ease;
   }
+
+  .tapp-color-card:hover { transform: translateY(-0.4rem); box-shadow: 0 1.2rem 3rem rgba(23, 23, 23, 0.12); z-index: 1; }
 
   .tapp-color-card__image-link {
     position: relative;
@@ -74,7 +78,7 @@
     transition: transform 220ms ease;
   }
 
-  .tapp-color-card__image-link:hover .tapp-color-card__image { transform: scale(1.025); }
+  .tapp-color-card__image-link:hover .tapp-color-card__image, .tapp-color-card__image-link:focus-visible .tapp-color-card__image { transform: scale(1.045); }
 
   .tapp-color-card__details {
     display: grid;
@@ -103,6 +107,25 @@
     line-height: 1.35;
   }
 
+  .tapp-color-card__cta {
+    display: inline-flex;
+    grid-column: 1 / -1;
+    width: fit-content;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    color: #fff;
+    background: #171717;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .tapp-color-card__cta:hover, .tapp-color-card__cta:focus-visible { background: #ff2990; color: #171717; transform: translateY(-2px); }
+
   .tapp-color-card__price {
     flex: 0 0 auto;
     font-size: clamp(1.2rem, 1.3vw, 1.7rem);
@@ -113,6 +136,7 @@
 
   @media screen and (max-width: 749px) {
     .tapp-color-card__image-link { aspect-ratio: 1 / 1; }
+    .tapp-color-card__cta { padding: 0.8rem 1rem; font-size: 1rem; }
     .tapp-color-card__details { padding: 1rem 0.8rem 1.4rem; column-gap: 0.4rem; }
     .tapp-color-card__details h3 { font-size: clamp(1rem, 3vw, 1.5rem); }
     .tapp-color-card__details p { font-size: 1rem; }
@@ -120,7 +144,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tapp-color-card__image { transition: none; }
+    .tapp-color-card, .tapp-color-card__image, .tapp-color-card__cta { transition: none; }
+    .tapp-color-card:hover, .tapp-color-card__cta:hover { transform: none; }
   }
 {% endstylesheet %}
 

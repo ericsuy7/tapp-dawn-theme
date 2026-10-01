@@ -25,7 +25,7 @@
     overflow: hidden;
     padding: clamp(4rem, 8vw, 9rem) 0;
     color: #fff;
-    background: radial-gradient(circle at 75% 18%, #ff8cb8 0, #f45291 48%, #d93d7b 100%);
+    background: radial-gradient(ellipse at 76% 28%, rgba(255, 41, 144, 0.82) 0, rgba(244, 82, 145, 0.42) 30%, transparent 62%), linear-gradient(120deg, #0b0a0d 0%, #171019 50%, #2b1121 100%);
   }
 
   .tapp-hero__layout {
@@ -96,12 +96,15 @@
 
   .tapp-hero__image-wrap {
     overflow: hidden;
-    border: 0.8rem solid rgba(255, 255, 255, 0.46);
+    border: 0.8rem solid rgba(255, 255, 255, 0.2);
     border-radius: 2.8rem;
     background: #2b1420;
-    box-shadow: 0 2.8rem 7rem rgba(53, 11, 32, 0.28);
+    box-shadow: 0 2.8rem 7rem rgba(255, 41, 144, 0.2);
     transform: rotate(2deg);
+    transition: transform 350ms ease, box-shadow 350ms ease;
   }
+
+  .tapp-hero__image-wrap:hover { transform: rotate(0deg) translateY(-0.5rem); box-shadow: 0 3rem 8rem rgba(255, 41, 144, 0.28); }
 
   .tapp-hero__image {
     display: block;
@@ -135,9 +138,10 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tapp-hero__button {
+    .tapp-hero__button, .tapp-hero__image-wrap {
       transition: none;
     }
+    .tapp-hero__image-wrap:hover { transform: rotate(2deg); }
   }
 {% endstylesheet %}
 

@@ -7,22 +7,22 @@
       <a class="tapp-setup__link" href="{{ section.settings.button_link | default: '/products/tapp-nfc-card' }}">{{ 'sections.tapp_setup.button' | t }} <span aria-hidden="true">↗</span></a>
     </div>
     <ol class="tapp-setup__steps">
-      <li class="tapp-setup__step tapp-setup__step--pink">
+      <li class="tapp-setup__step tapp-setup__step--pink{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-setup__number">01</span>
         {% if section.settings.step_one_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_one_image | escape }}" alt="{{ 'sections.tapp_setup.step_one_alt' | t | escape }}" width="720" height="517" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_one_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_one_text' | t }}</p></div>
       </li>
-      <li class="tapp-setup__step tapp-setup__step--yellow">
+      <li class="tapp-setup__step tapp-setup__step--yellow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-setup__number">02</span>
         {% if section.settings.step_two_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_two_image | escape }}" alt="{{ 'sections.tapp_setup.step_two_alt' | t | escape }}" width="720" height="665" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_two_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_two_text' | t }}</p></div>
       </li>
-      <li class="tapp-setup__step tapp-setup__step--ink">
+      <li class="tapp-setup__step tapp-setup__step--ink{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-setup__number">03</span>
         {% if section.settings.step_three_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_three_image | escape }}" alt="{{ 'sections.tapp_setup.step_three_alt' | t | escape }}" width="720" height="837" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_three_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_three_text' | t }}</p></div>
       </li>
-      <li class="tapp-setup__step tapp-setup__step--pink">
+      <li class="tapp-setup__step tapp-setup__step--pink{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-setup__number">04</span>
         {% if section.settings.step_four_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_four_image | escape }}" alt="{{ 'sections.tapp_setup.step_four_alt' | t | escape }}" width="720" height="837" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_four_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_four_text' | t }}</p></div>
@@ -112,7 +112,10 @@
     border-radius: 2rem;
     color: #fff;
     background: #0b0a0d;
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
   }
+
+  .tapp-setup__step:hover { transform: translateY(-0.4rem); border-color: rgba(255,41,144,0.55); box-shadow: 0 1.2rem 3rem rgba(255,41,144,0.1); }
 
   .tapp-setup__step--pink, .tapp-setup__step--yellow, .tapp-setup__step--ink { color: #fff; background: #111014; }
 
@@ -144,6 +147,8 @@
     font-size: 1.5rem;
     line-height: 1.4;
   }
+
+  @media (prefers-reduced-motion: reduce) { .tapp-setup__step { transition: none; } .tapp-setup__step:hover { transform: none; } }
 
   @media screen and (max-width: 749px) {
     .tapp-setup__layout { grid-template-columns: 1fr; gap: 3rem; }

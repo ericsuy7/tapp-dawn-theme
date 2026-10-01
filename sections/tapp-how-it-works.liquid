@@ -6,17 +6,17 @@
       <p>{{ section.settings.description | escape }}</p>
     </div>
     <ol class="tapp-how__steps">
-      <li class="tapp-how__step">
+      <li class="tapp-how__step{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-how__number">01 <span aria-hidden="true">↗</span></span>
         <h3>{{ 'sections.tapp_how.step_one_title' | t }}</h3>
         <p>{{ 'sections.tapp_how.step_one_text' | t }}</p>
       </li>
-      <li class="tapp-how__step">
+      <li class="tapp-how__step{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-how__number">02 <span aria-hidden="true">↗</span></span>
         <h3>{{ 'sections.tapp_how.step_two_title' | t }}</h3>
         <p>{{ 'sections.tapp_how.step_two_text' | t }}</p>
       </li>
-      <li class="tapp-how__step">
+      <li class="tapp-how__step{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <span class="tapp-how__number">03 <span aria-hidden="true">↗</span></span>
         <h3>{{ 'sections.tapp_how.step_three_title' | t }}</h3>
         <p>{{ 'sections.tapp_how.step_three_text' | t }}</p>
@@ -37,7 +37,8 @@
   .tapp-how__intro h2 { max-width: 12ch; margin: 0; color: #fff; font-size: clamp(4rem, 7vw, 8rem); font-weight: 900; letter-spacing: -0.075em; line-height: 0.92; }
   .tapp-how__intro > p:last-child { max-width: 72rem; margin: 2rem 0 0; color: #aaa7ad; font-size: clamp(1.6rem, 2vw, 2rem); line-height: 1.5; }
   .tapp-how__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; overflow: hidden; border: 1px solid #302d33; border-radius: 2.4rem; background: #0b0a0d; list-style: none; }
-  .tapp-how__step { min-width: 0; padding: clamp(2.4rem, 4vw, 5rem); }
+  .tapp-how__step { min-width: 0; padding: clamp(2.4rem, 4vw, 5rem); transition: background-color 180ms ease; }
+  .tapp-how__step:hover { background: #151219; }
   .tapp-how__step + .tapp-how__step { border-left: 1px solid #302d33; }
   .tapp-how__number { display: flex; align-items: center; justify-content: space-between; color: #69656d; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.2em; }
   .tapp-how__number span { color: #ff2990; font-size: 2.4rem; }

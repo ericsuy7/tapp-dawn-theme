@@ -56,8 +56,8 @@
     }
   },
   "order": [
-    "featured_collection",
     "tapp_hero",
+    "featured_collection",
     "tapp_how",
     "tapp_benefits",
     "tapp_setup"
