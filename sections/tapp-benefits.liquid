@@ -1,0 +1,49 @@
+<section class="tapp-benefits" aria-labelledby="TappBenefitsHeading-{{ section.id }}">
+  <div class="page-width tapp-benefits__inner">
+    <div class="tapp-benefits__intro">
+      <p class="tapp-benefits__eyebrow">{{ 'sections.tapp_benefits.eyebrow' | t }}</p>
+      <h2 id="TappBenefitsHeading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+    </div>
+    <ul class="tapp-benefits__grid">
+      <li class="tapp-benefits__item"><span aria-hidden="true">↯</span><h3>{{ 'sections.tapp_benefits.one_title' | t }}</h3><p>{{ 'sections.tapp_benefits.one_text' | t }}</p></li>
+      <li class="tapp-benefits__item"><span aria-hidden="true">⌁</span><h3>{{ 'sections.tapp_benefits.two_title' | t }}</h3><p>{{ 'sections.tapp_benefits.two_text' | t }}</p></li>
+      <li class="tapp-benefits__item"><span aria-hidden="true">＋</span><h3>{{ 'sections.tapp_benefits.three_title' | t }}</h3><p>{{ 'sections.tapp_benefits.three_text' | t }}</p></li>
+      <li class="tapp-benefits__item"><span aria-hidden="true">∞</span><h3>{{ 'sections.tapp_benefits.four_title' | t }}</h3><p>{{ 'sections.tapp_benefits.four_text' | t }}</p></li>
+      <li class="tapp-benefits__item"><span aria-hidden="true">✳</span><h3>{{ 'sections.tapp_benefits.five_title' | t }}</h3><p>{{ 'sections.tapp_benefits.five_text' | t }}</p></li>
+      <li class="tapp-benefits__item"><span aria-hidden="true">↗</span><h3>{{ 'sections.tapp_benefits.six_title' | t }}</h3><p>{{ 'sections.tapp_benefits.six_text' | t }}</p></li>
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  .tapp-benefits { padding: clamp(5rem, 8vw, 9rem) 0; color: #fff; background: #0b0a0d; }
+  .tapp-benefits__intro { margin-bottom: 4rem; }
+  .tapp-benefits__eyebrow { margin: 0 0 1.5rem; color: #ff2990; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+  .tapp-benefits__intro h2 { max-width: 12ch; margin: 0; color: #fff; font-size: clamp(4rem, 7vw, 8rem); font-weight: 900; letter-spacing: -0.075em; line-height: 0.92; }
+  .tapp-benefits__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; overflow: hidden; border: 1px solid #302d33; border-radius: 2.4rem; list-style: none; }
+  .tapp-benefits__item { min-width: 0; padding: clamp(2rem, 3vw, 3.6rem); }
+  .tapp-benefits__item:nth-child(3n + 2), .tapp-benefits__item:nth-child(3n + 3) { border-left: 1px solid #242127; }
+  .tapp-benefits__item:nth-child(n + 4) { border-top: 1px solid #242127; }
+  .tapp-benefits__item > span { display: inline-block; color: #ff2990; font-size: 3rem; font-weight: 600; line-height: 1; }
+  .tapp-benefits__item h3 { margin: 2rem 0 1rem; color: #fff; font-size: clamp(1.8rem, 2.2vw, 2.5rem); font-weight: 850; letter-spacing: -0.05em; }
+  .tapp-benefits__item p { margin: 0; color: #aaa7ad; font-size: clamp(1.4rem, 1.5vw, 1.7rem); line-height: 1.55; }
+  @media screen and (max-width: 749px) {
+    .tapp-benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 1.8rem; }
+    .tapp-benefits__item { padding: 1.8rem 1.5rem; }
+    .tapp-benefits__item:nth-child(3n + 2), .tapp-benefits__item:nth-child(3n + 3) { border-left: 0; }
+    .tapp-benefits__item:nth-child(even) { border-left: 1px solid #242127; }
+    .tapp-benefits__item:nth-child(n + 3) { border-top: 1px solid #242127; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "TAPP benefits",
+  "tag": "section",
+  "class": "section-tapp-benefits",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Stop spelling it out." }
+  ],
+  "presets": [{ "name": "TAPP benefits" }]
+}
+{% endschema %}

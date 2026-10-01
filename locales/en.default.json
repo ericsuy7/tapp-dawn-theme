@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -279,12 +288,38 @@
       "step_one_title": "Open NFC Tools",
       "step_one_alt": "NFC Tools menu showing the Write option",
       "step_one_text": "Choose Write, then tap Add a record to start programming your card.",
-      "step_two_title": "Add your link",
+      "step_two_title": "Choose a record",
       "step_two_alt": "NFC Tools record options, including URL and URI",
-      "step_two_text": "Choose URL / URI, enter the page you want people to open, and save the record.",
-      "step_three_title": "Write and tap",
-      "step_three_alt": "Phone ready to scan an NFC card",
-      "step_three_text": "Tap Write and hold the card close to your phone until NFC Tools confirms it is done."
+      "step_two_text": "Select URL / URI to add a website or profile link to your card.",
+      "step_three_title": "Add your destination",
+      "step_three_text": "Enter the link you want people to open and save the record in NFC Tools.",
+      "step_four_title": "Write and tap",
+      "step_four_alt": "Phone ready to scan an NFC card",
+      "step_four_text": "Tap Write and hold the card close to your phone until NFC Tools confirms it is done."
+    },
+    "tapp_how": {
+      "eyebrow": "The ritual",
+      "step_one_title": "Tap",
+      "step_one_text": "Hold your TAPP card near the NFC area on the back of a compatible phone.",
+      "step_two_title": "Share",
+      "step_two_text": "The link saved to your card opens on the phone, ready to view.",
+      "step_three_title": "Connect",
+      "step_three_text": "Share your profile, contact details, social links, or the page you chose."
+    },
+    "tapp_benefits": {
+      "eyebrow": "Why TAPP",
+      "one_title": "A quick handoff",
+      "one_text": "Bring your link up with a simple tap instead of spelling it out.",
+      "two_title": "No app for them",
+      "two_text": "A compatible phone can read the NFC card without a special app.",
+      "three_title": "Share your way",
+      "three_text": "Point your card to a profile, contact page, portfolio, or website.",
+      "four_title": "Update when you need",
+      "four_text": "Rewrite the NFC card whenever you want to change its destination.",
+      "five_title": "Pick your finish",
+      "five_text": "Choose the look that fits you: black, pink, or transparent.",
+      "six_title": "Made for introductions",
+      "six_text": "Keep your important link close for events, work, and everyday meetups."
     },
     "announcements": {
       "previous_announcement": "Previous announcement",

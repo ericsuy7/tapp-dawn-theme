@@ -1,0 +1,65 @@
+<section class="tapp-how" aria-labelledby="TappHowHeading-{{ section.id }}">
+  <div class="page-width tapp-how__inner">
+    <div class="tapp-how__intro">
+      <p class="tapp-how__eyebrow">{{ 'sections.tapp_how.eyebrow' | t }}</p>
+      <h2 id="TappHowHeading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.description | escape }}</p>
+    </div>
+    <ol class="tapp-how__steps">
+      <li class="tapp-how__step">
+        <span class="tapp-how__number">01 <span aria-hidden="true">↗</span></span>
+        <h3>{{ 'sections.tapp_how.step_one_title' | t }}</h3>
+        <p>{{ 'sections.tapp_how.step_one_text' | t }}</p>
+      </li>
+      <li class="tapp-how__step">
+        <span class="tapp-how__number">02 <span aria-hidden="true">↗</span></span>
+        <h3>{{ 'sections.tapp_how.step_two_title' | t }}</h3>
+        <p>{{ 'sections.tapp_how.step_two_text' | t }}</p>
+      </li>
+      <li class="tapp-how__step">
+        <span class="tapp-how__number">03 <span aria-hidden="true">↗</span></span>
+        <h3>{{ 'sections.tapp_how.step_three_title' | t }}</h3>
+        <p>{{ 'sections.tapp_how.step_three_text' | t }}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .tapp-how {
+    padding: clamp(5rem, 8vw, 9rem) 0;
+    color: #fff;
+    background: linear-gradient(180deg, #141217 0%, #0b0a0d 100%);
+  }
+
+  .tapp-how__intro { max-width: 78rem; margin-bottom: clamp(3rem, 6vw, 6rem); }
+  .tapp-how__eyebrow { margin: 0 0 1.5rem; color: #ff2990; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+  .tapp-how__intro h2 { max-width: 12ch; margin: 0; color: #fff; font-size: clamp(4rem, 7vw, 8rem); font-weight: 900; letter-spacing: -0.075em; line-height: 0.92; }
+  .tapp-how__intro > p:last-child { max-width: 72rem; margin: 2rem 0 0; color: #aaa7ad; font-size: clamp(1.6rem, 2vw, 2rem); line-height: 1.5; }
+  .tapp-how__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; overflow: hidden; border: 1px solid #302d33; border-radius: 2.4rem; background: #0b0a0d; list-style: none; }
+  .tapp-how__step { min-width: 0; padding: clamp(2.4rem, 4vw, 5rem); }
+  .tapp-how__step + .tapp-how__step { border-left: 1px solid #302d33; }
+  .tapp-how__number { display: flex; align-items: center; justify-content: space-between; color: #69656d; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.2em; }
+  .tapp-how__number span { color: #ff2990; font-size: 2.4rem; }
+  .tapp-how__step h3 { margin: 3rem 0 1rem; color: #fff; font-size: clamp(2.4rem, 3vw, 3.4rem); font-weight: 850; letter-spacing: -0.055em; }
+  .tapp-how__step p { margin: 0; color: #aaa7ad; font-size: clamp(1.5rem, 1.6vw, 1.8rem); line-height: 1.55; }
+  @media screen and (max-width: 749px) {
+    .tapp-how__steps { grid-template-columns: 1fr; border-radius: 1.8rem; }
+    .tapp-how__step { padding: 2.4rem; }
+    .tapp-how__step + .tapp-how__step { border-top: 1px solid #302d33; border-left: 0; }
+    .tapp-how__step h3 { margin-top: 1.8rem; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "TAPP how it works",
+  "tag": "section",
+  "class": "section-tapp-how",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Connect in three steps." },
+    { "type": "text", "id": "description", "label": "Description", "default": "A quick tap turns a first hello into a connection." }
+  ],
+  "presets": [{ "name": "TAPP how it works" }]
+}
+{% endschema %}

@@ -17,10 +17,14 @@
         {% if section.settings.step_two_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_two_image | escape }}" alt="{{ 'sections.tapp_setup.step_two_alt' | t | escape }}" width="720" height="665" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_two_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_two_text' | t }}</p></div>
       </li>
-      <li class="tapp-setup__step tapp-setup__step--ink">
+      <li class="tapp-setup__step tapp-setup__step--ink tapp-setup__step--text">
         <span class="tapp-setup__number">03</span>
-        {% if section.settings.step_three_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_three_image | escape }}" alt="{{ 'sections.tapp_setup.step_three_alt' | t | escape }}" width="720" height="837" loading="lazy">{% endif %}
         <div><h3>{{ 'sections.tapp_setup.step_three_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_three_text' | t }}</p></div>
+      </li>
+      <li class="tapp-setup__step tapp-setup__step--pink">
+        <span class="tapp-setup__number">04</span>
+        {% if section.settings.step_four_image != blank %}<img class="tapp-setup__image" src="{{ section.settings.step_four_image | escape }}" alt="{{ 'sections.tapp_setup.step_four_alt' | t | escape }}" width="720" height="837" loading="lazy">{% endif %}
+        <div><h3>{{ 'sections.tapp_setup.step_four_title' | t }}</h3><p>{{ 'sections.tapp_setup.step_four_text' | t }}</p></div>
       </li>
     </ol>
   </div>
@@ -36,7 +40,7 @@
 
   .tapp-setup__layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
     align-items: center;
     gap: clamp(3rem, 7vw, 8rem);
   }
@@ -88,6 +92,7 @@
 
   .tapp-setup__steps {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.2rem;
     margin: 0;
     padding: 0;
@@ -96,32 +101,35 @@
 
   .tapp-setup__step {
     position: relative;
-    display: grid;
-    grid-template-columns: 4.5rem 11rem minmax(0, 1fr);
-    align-items: center;
-    gap: 1.6rem;
-    min-height: 12rem;
-    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+    min-height: 28rem;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 2rem;
-    color: #211722;
+    color: #fff;
+    background: #0b0a0d;
   }
 
-  .tapp-setup__step--pink { background: #f45291; }
-  .tapp-setup__step--yellow { background: #f5d963; }
-  .tapp-setup__step--ink { color: #fff; background: #403142; }
+  .tapp-setup__step--pink, .tapp-setup__step--yellow, .tapp-setup__step--ink { color: #fff; background: #111014; }
 
   .tapp-setup__number { font-size: 1.2rem; font-weight: 900; letter-spacing: 0.1em; }
 
   .tapp-setup__image {
     display: block;
-    width: 11rem;
-    height: 9rem;
+    width: 100%;
+    height: 15rem;
     border: 0.3rem solid rgba(255,255,255,0.82);
     border-radius: 1.2rem;
-    object-fit: cover;
-    object-position: center 35%;
+    object-fit: contain;
+    object-position: center;
+    background: #09090a;
     box-shadow: 0 0.8rem 2rem rgba(33,23,34,0.22);
   }
+
+  .tapp-setup__step--text::before { content: '↗'; display: grid; width: 100%; height: 15rem; place-items: center; border: 0.3rem solid rgba(255,255,255,0.12); border-radius: 1.2rem; color: #ff2990; background: #09090a; font-size: 6rem; font-weight: 300; }
 
   .tapp-setup__step h3 {
     margin: 0;
@@ -141,8 +149,11 @@
   @media screen and (max-width: 749px) {
     .tapp-setup__layout { grid-template-columns: 1fr; gap: 3rem; }
     .tapp-setup__intro h2 { max-width: 10ch; }
-    .tapp-setup__step { grid-template-columns: 3rem 6.5rem minmax(0, 1fr); gap: 1rem; min-height: 10rem; padding: 1.5rem; border-radius: 1.6rem; }
-    .tapp-setup__image { width: 6.5rem; height: 7rem; border-width: 0.2rem; border-radius: 0.8rem; }
+    .tapp-setup__steps { grid-template-columns: 1fr; }
+    .tapp-setup__step { display: grid; grid-template-columns: 3rem minmax(0, 1fr); align-items: start; gap: 0.8rem 1rem; min-height: auto; padding: 1.5rem; border-radius: 1.6rem; }
+    .tapp-setup__step > .tapp-setup__number { grid-column: 1; grid-row: 1 / span 2; }
+    .tapp-setup__image, .tapp-setup__step--text::before { grid-column: 2; width: 100%; height: 14rem; border-width: 0.2rem; border-radius: 0.8rem; }
+    .tapp-setup__step > div { grid-column: 2; }
     .tapp-setup__step p { font-size: 1.35rem; }
   }
 {% endstylesheet %}
@@ -157,7 +168,7 @@
     { "type": "text", "id": "description", "label": "Description", "default": "Add your destination in NFC Tools, write it to your card, and you are ready to connect." },
     { "type": "url", "id": "step_one_image", "label": "Step 1 image" },
     { "type": "url", "id": "step_two_image", "label": "Step 2 image" },
-    { "type": "url", "id": "step_three_image", "label": "Step 3 image" },
+    { "type": "url", "id": "step_four_image", "label": "Step 4 image" },
     { "type": "url", "id": "button_link", "label": "Button link" }
   ],
   "presets": [{ "name": "TAPP card setup" }]
