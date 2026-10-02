@@ -22,7 +22,12 @@
             </a>
             <div class="tapp-color-card__details">
               <h3><a href="{{ tapp_product.url }}?variant={{ variant.id }}">{{ variant.title | escape }}</a></h3>
-              <span class="tapp-color-card__price">{{ variant.price | money }}</span>
+              <span class="tapp-color-card__price">
+                {% if variant.compare_at_price > variant.price %}
+                  <s class="tapp-color-card__price-compare">{{ variant.compare_at_price | money }}</s>
+                {% endif %}
+                <span class="tapp-color-card__price-current">{{ variant.price | money }}</span>
+              </span>
               <p>{{ card_caption }}</p>
               <a class="tapp-color-card__cta" href="{{ tapp_product.url }}?variant={{ variant.id }}">{{ 'sections.tapp_colorways.shop_colorway' | t: color: variant.title | escape }} <span aria-hidden="true">↗</span></a>
             </div>
@@ -129,9 +134,23 @@
   .tapp-color-card__cta:hover, .tapp-color-card__cta:focus-visible { background: #ff75b5; color: #171017; transform: translateY(-2px); }
 
   .tapp-color-card__price {
-    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 0.65rem;
     font-size: clamp(1.2rem, 1.3vw, 1.7rem);
     white-space: nowrap;
+  }
+
+  .tapp-color-card__price-compare {
+    color: #aaa3aa;
+    font-size: 0.82em;
+    opacity: 0.8;
+  }
+
+  .tapp-color-card__price-current {
+    color: #fff;
+    font-weight: 700;
   }
 
   .tapp-colorways__empty { text-align: center; }
