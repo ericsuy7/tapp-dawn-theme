@@ -51,6 +51,10 @@
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    {%- if request.page_type == 'product' and product.title == 'TAP NFC CARD' -%}
+      {{ 'tapp-variant-theme.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'tapp-variant-theme.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'cart-disclosure-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'cart-disclosure-tooltip.js' | asset_url }}" defer="defer"></script>
