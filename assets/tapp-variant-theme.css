@@ -1,6 +1,6 @@
 html[data-tapp-colorway='pink'] {
-  --tapp-page-background: #f4a8c2;
-  --tapp-page-background-rgb: 244, 168, 194;
+  --tapp-page-background: #c66f96;
+  --tapp-page-background-rgb: 198, 111, 150;
   --tapp-page-foreground-rgb: 35, 19, 26;
   --color-background: var(--tapp-page-background-rgb);
   --gradient-background: var(--tapp-page-background);
