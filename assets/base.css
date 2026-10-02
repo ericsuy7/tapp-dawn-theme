@@ -3638,17 +3638,17 @@ details-disclosure > details {
 
 :root {
   --tapp-pink: #f45291;
-  --tapp-cream: #fff9f4;
+  --tapp-bg: #0b0a0d;
   --tapp-ink: #211722;
 }
 
 body {
-  background-color: var(--tapp-cream);
+  background-color: var(--tapp-bg);
 }
 
 .shopify-section-group-header-group .header-wrapper {
-  background-color: var(--tapp-cream);
-  border-bottom: 1px solid #f4cada;
+  background-color: var(--tapp-bg);
+  border-bottom: 1px solid #302d33;
 }
 
 .announcement-bar-section .announcement-bar {
