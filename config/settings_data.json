@@ -7,13 +7,13 @@
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#FFF9F4",
+            "background": "#0B0A0D",
             "background_gradient": "",
-            "text": "#211722",
-            "button": "#F45291",
-            "button_label": "#FFFFFF",
-            "secondary_button_label": "#211722",
-            "shadow": "#211722"
+            "text": "#FFFFFF",
+            "button": "#FF2990",
+            "button_label": "#211722",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#000000"
           }
         },
         "scheme-2": {
