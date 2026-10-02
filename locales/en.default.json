@@ -424,7 +424,6 @@
     },
     "tapp_nfc_faq": {
       "eyebrow": "The tech behind the tap",
-      "heading": "A little NFC. A lot more connection.",
       "label": "NFC stands for",
       "term": "Near Field Communication",
       "definition": "It is a short-range wireless technology that lets nearby devices exchange information when held very close together. TAP stores a web link on the card for a compatible phone to read.",
@@ -435,7 +434,9 @@
       "question_two": "Does the other person need an app?",
       "answer_two": "They do not need NFC Tools to read a web link. NFC Tools is used to write a link onto your card during setup.",
       "question_three": "Can I change the link on my card?",
-      "answer_three": "Yes. Use NFC Tools to write a new URL record to your card, then it can direct people to your updated destination."
+      "answer_three": "Yes. Use NFC Tools to write a new URL record to your card, then it can direct people to your updated destination.",
+      "heading_line_one": "A little NFC.",
+      "heading_line_two": "A lot more connection."
     }
   },
   "localization": {
