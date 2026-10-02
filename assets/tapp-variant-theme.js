@@ -1,5 +1,9 @@
 (() => {
-  const picker = document.querySelector('variant-selects[data-product-title="TAP NFC CARD"]');
+  const picker = [...document.querySelectorAll('variant-selects[data-product-title], variant-selects[data-product-handle]')].find(
+    (element) =>
+      element.dataset.productHandle?.trim().toLowerCase() === 'tap-nfc-card' ||
+      element.dataset.productTitle?.trim().toLowerCase() === 'tap nfc card'
+  );
   if (!picker) return;
 
   const optionGroups = [...picker.querySelectorAll('.product-form__input')];
