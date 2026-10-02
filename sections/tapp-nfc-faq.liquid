@@ -1,8 +1,8 @@
 <section class="tapp-nfc" aria-labelledby="TappNfcHeading-{{ section.id }}">
   <div class="page-width tapp-nfc__layout">
-    <div class="tapp-nfc__intro">
+    <div class="tapp-nfc__intro{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
       <p class="tapp-nfc__eyebrow">{{ 'sections.tapp_nfc_faq.eyebrow' | t }}</p>
-      <h2 id="TappNfcHeading-{{ section.id }}">{{ 'sections.tapp_nfc_faq.heading' | t }}</h2>
+      <h2 id="TappNfcHeading-{{ section.id }}"><span>{{ 'sections.tapp_nfc_faq.heading_line_one' | t }}</span><span class="tapp-nfc__heading-accent">{{ 'sections.tapp_nfc_faq.heading_line_two' | t }}</span></h2>
       <div class="tapp-nfc__definition">
         <span class="tapp-nfc__signal" aria-hidden="true">
           <svg viewBox="0 0 48 48" focusable="false"><path d="M17 16a12 12 0 0 0 0 16M11 10a20 20 0 0 0 0 28M31 16a12 12 0 0 1 0 16M37 10a20 20 0 0 1 0 28"/><circle cx="24" cy="24" r="2.5"/></svg>
@@ -15,15 +15,15 @@
     </div>
 
     <div class="tapp-nfc__questions" aria-label="{{ 'sections.tapp_nfc_faq.questions_label' | t }}">
-      <details class="tapp-nfc__item"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
+      <details class="tapp-nfc__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <summary>{{ 'sections.tapp_nfc_faq.question_one' | t }}<span aria-hidden="true">+</span></summary>
         <div class="tapp-nfc__answer"><p>{{ 'sections.tapp_nfc_faq.answer_one' | t }}</p></div>
       </details>
-      <details class="tapp-nfc__item"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
+      <details class="tapp-nfc__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <summary>{{ 'sections.tapp_nfc_faq.question_two' | t }}<span aria-hidden="true">+</span></summary>
         <div class="tapp-nfc__answer"><p>{{ 'sections.tapp_nfc_faq.answer_two' | t }}</p></div>
       </details>
-      <details class="tapp-nfc__item"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
+      <details class="tapp-nfc__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
         <summary>{{ 'sections.tapp_nfc_faq.question_three' | t }}<span aria-hidden="true">+</span></summary>
         <div class="tapp-nfc__answer"><p>{{ 'sections.tapp_nfc_faq.answer_three' | t }}</p></div>
       </details>
@@ -65,15 +65,22 @@
     line-height: 0.92;
   }
 
+  .tapp-nfc__intro h2 span { display: block; }
+  .tapp-nfc__heading-accent { color: #ff2990; }
+
   .tapp-nfc__definition {
     position: relative;
     padding: clamp(2rem, 3.5vw, 3.5rem);
     border: 1px solid #302d33;
     border-radius: 2.4rem;
     background: rgba(19, 17, 22, 0.88);
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
   }
 
+  .tapp-nfc__definition:hover { transform: translateY(-0.35rem); border-color: rgba(255, 41, 144, 0.55); box-shadow: 0 1.6rem 4rem rgba(255, 41, 144, 0.1); }
+
   .tapp-nfc__signal {
+    position: relative;
     display: grid;
     width: 6.4rem;
     height: 6.4rem;
@@ -86,6 +93,8 @@
     animation: tappNfcPulse 2.8s ease-in-out infinite;
   }
 
+  .tapp-nfc__signal::before, .tapp-nfc__signal::after { position: absolute; inset: -0.75rem; border: 1px solid rgba(255, 41, 144, 0.35); border-radius: 50%; content: ""; animation: tappNfcRipple 2.8s ease-out infinite; }
+  .tapp-nfc__signal::after { animation-delay: 1.4s; }
   .tapp-nfc__signal svg { width: 3.2rem; height: 3.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
   .tapp-nfc__label { margin: 0 0 0.7rem; color: #aaa7ad; font-size: 1.25rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
   .tapp-nfc__term { margin: 0; color: #fff; font-size: clamp(2.4rem, 3.2vw, 3.6rem); font-weight: 850; letter-spacing: -0.055em; line-height: 1.05; }
@@ -112,12 +121,24 @@
   .tapp-nfc__cta:hover, .tapp-nfc__cta:focus-visible { transform: translateY(-2px); background: #fff; }
   .tapp-nfc__questions { border-top: 1px solid #302d33; }
   .tapp-nfc__item { border-bottom: 1px solid #302d33; }
-  .tapp-nfc__item summary { display: flex; min-height: 7rem; align-items: center; justify-content: space-between; gap: 2rem; color: #fff; cursor: pointer; font-size: clamp(1.8rem, 2.3vw, 2.4rem); font-weight: 800; letter-spacing: -0.04em; list-style: none; }
+  .tapp-nfc__item summary { display: flex; min-height: 7rem; align-items: center; justify-content: space-between; gap: 2rem; color: #fff; cursor: pointer; font-size: clamp(1.8rem, 2.3vw, 2.4rem); font-weight: 800; letter-spacing: -0.04em; list-style: none; transition: color 180ms ease; }
+  .tapp-nfc__item summary:hover { color: #ff75b5; }
   .tapp-nfc__item summary::-webkit-details-marker { display: none; }
   .tapp-nfc__item summary span { flex: 0 0 auto; color: #ff2990; font-size: 2.8rem; font-weight: 400; transition: transform 180ms ease; }
   .tapp-nfc__item[open] summary span { transform: rotate(45deg); }
   .tapp-nfc__answer { max-width: 64rem; padding: 0 4rem 2.2rem 0; color: #aaa7ad; font-size: 1.6rem; line-height: 1.6; }
   .tapp-nfc__answer p { margin: 0; }
+  .tapp-nfc__item[open] .tapp-nfc__answer { animation: tappNfcAnswer 220ms ease both; }
+
+  @keyframes tappNfcRipple {
+    0% { transform: scale(0.82); opacity: 0.8; }
+    100% { transform: scale(1.38); opacity: 0; }
+  }
+
+  @keyframes tappNfcAnswer {
+    from { opacity: 0; transform: translateY(-0.6rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   @keyframes tappNfcPulse {
     0%, 100% { transform: scale(1); box-shadow: 0 0 2.8rem rgba(255, 41, 144, 0.18); }
@@ -133,7 +154,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tapp-nfc__signal, .tapp-nfc__cta, .tapp-nfc__item summary span { animation: none; transition: none; }
+    .tapp-nfc__signal, .tapp-nfc__signal::before, .tapp-nfc__signal::after, .tapp-nfc__cta, .tapp-nfc__item summary span, .tapp-nfc__item[open] .tapp-nfc__answer { animation: none; transition: none; }
+    .tapp-nfc__definition { transition: none; }
+    .tapp-nfc__definition:hover { transform: none; }
     .tapp-nfc__cta:hover, .tapp-nfc__cta:focus-visible { transform: none; }
   }
 {% endstylesheet %}
