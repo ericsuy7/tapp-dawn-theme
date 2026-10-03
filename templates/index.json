@@ -44,17 +44,12 @@
       "settings": {
         "heading": "Stop spelling it out."
       }
-    },
-    "tapp_nfc": {
-      "type": "tapp-nfc-faq",
-      "settings": {}
     }
   },
   "order": [
     "tapp_hero",
     "featured_collection",
     "tapp_how",
-    "tapp_nfc",
     "tapp_benefits",
     "tapp_setup"
   ]
